@@ -371,12 +371,10 @@ aplicativo.use('/api', (_requisicao, resposta, proximo) => {
   proximo()
 })
 
+aplicativo.use(express.static(join(diretorioProjeto, 'paginas')))
 aplicativo.use('/estilos', express.static(join(diretorioProjeto, 'estilos')))
 aplicativo.use('/scripts', express.static(join(diretorioProjeto, 'scripts')))
 aplicativo.use('/paginas', express.static(join(diretorioProjeto, 'paginas')))
-aplicativo.get('/', (_requisicao, resposta) => {
-  resposta.sendFile(join(diretorioProjeto, 'paginas', 'index.html'))
-})
 
 aplicativo.get('/api/saude', (_requisicao, resposta) => {
   resposta.json({ estado: 'disponivel', modo: 'demonstracao' })
