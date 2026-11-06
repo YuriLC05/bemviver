@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="Encontre um profissional e escolha um horário para sua consulta." />
+    <meta name="api-base" content="http://localhost:3000/api" />
+    <title>BemViver — consultas sem complicação</title>
+    <link rel="stylesheet" href="../estilos/styles.css" />
+    <script src="../scripts/app.js?v=5" defer></script>
+  </head>
+  <body>
+    <svg class="biblioteca-icones" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+      <symbol id="desenho-clinica" viewBox="0 0 48 48">
+        <path d="M15 8h18a3 3 0 0 1 3 3v28H12V11a3 3 0 0 1 3-3Z" />
+        <path d="M19 8V5h10v3m-5 9v12m-6-6h12M19 39v-7h10v7" />
+      </symbol>
+      <symbol id="desenho-psicologia" viewBox="0 0 48 48">
+        <path d="M24 39c-8 0-14-6-14-14 0-7 5-13 12-14 7-1 14 4 15 11 1 5-1 9-5 12l1 6-7-2a15 15 0 0 1-2 1Z" />
+        <path d="M18 22c1-3 5-3 6 0 2-3 6-2 6 2 0 2-2 4-6 7-4-3-7-5-6-9Z" />
+      </symbol>
+      <symbol id="desenho-dermatologia" viewBox="0 0 48 48">
+        <path d="M10 28c0-10 6-17 14-17s14 7 14 17v3H10v-3Zm5 3 2 8h14l2-8m-9-25v5m13 1-4 4m9 9h-5" />
+        <path d="M19 23h.1m10-.1h.1M20 27c2 2 6 2 8 0" />
+      </symbol>
+      <symbol id="desenho-cardiologia" viewBox="0 0 48 48">
+        <path d="M24 39S8 29 8 18c0-8 11-11 16-3 5-8 16-5 16 3 0 11-16 21-16 21Z" />
+        <path d="M11 24h8l4-7 5 14 4-7h5" />
+      </symbol>
+      <symbol id="desenho-pediatria" viewBox="0 0 48 48">
+        <path d="M11 25a13 13 0 0 1 26 0v7a4 4 0 0 1-4 4H15a4 4 0 0 1-4-4v-7Z" />
+        <path d="M11 25h5l3-5 5 5 5-6 3 6h5M19 29h.1m10-.1h.1m-9 5c2 2 6 2 8 0M8 28h3m26 0h3" />
+      </symbol>
+      <symbol id="desenho-ginecologia" viewBox="0 0 48 48">
+        <path d="M24 21v17m0-14c-3-7-12-8-14-2-2 5 2 10 8 10m6-8c3-7 12-8 14-2 2 5-2 10-8 10M18 38h12" />
+        <circle cx="24" cy="15" r="5" />
+      </symbol>
+      <symbol id="desenho-ortopedia" viewBox="0 0 48 48">
+        <path d="M16 11a5 5 0 1 0-6 7l15 15a5 5 0 1 0 7 7 5 5 0 1 0 7-7L24 18a5 5 0 1 0-8-7Z" />
+        <path d="m18 19 11 11" />
+      </symbol>
+      <symbol id="desenho-neurologia" viewBox="0 0 48 48">
+        <path d="M23 11a7 7 0 0 0-12 5 7 7 0 0 0 1 12 7 7 0 0 0 7 10h4V11Zm2 0a7 7 0 0 1 12 5 7 7 0 0 1-1 12 7 7 0 0 1-7 10h-4V11Z" />
+        <path d="M17 18c3 0 4 2 4 5m-8 3c3-1 5 1 5 4m13-12c-3 0-4 2-4 5m8 3c-3-1-5 1-5 4m-6-13v16" />
+      </symbol>
+      <symbol id="desenho-psiquiatria" viewBox="0 0 48 48">
+        <path d="M24 39c-8 0-14-6-14-14 0-7 5-13 12-14 7-1 14 4 15 11 1 5-1 9-5 12l1 6-7-2a15 15 0 0 1-2 1Z" />
+        <path d="M24 18v12m-6-6h12" />
+      </symbol>
+      <symbol id="desenho-oftalmologia" viewBox="0 0 48 48">
+        <path d="M5 24s7-11 19-11 19 11 19 11-7 11-19 11S5 24 5 24Z" />
+        <circle cx="24" cy="24" r="6" />
+        <circle cx="24" cy="24" r="2" />
+      </symbol>
+      <symbol id="desenho-endocrinologia" viewBox="0 0 48 48">
+        <path d="M24 13v8m0 0c-4-7-13-7-14-1-1 5 4 9 10 6l4-5Zm0 0c4-7 13-7 14-1 1 5-4 9-10 6l-4-5Zm0 0v16m-6 0h12" />
+        <circle cx="24" cy="9" r="2" />
+      </symbol>
+      <symbol id="desenho-otorrino" viewBox="0 0 48 48">
+        <path d="M31 31c0 6-4 10-9 10-4 0-7-3-7-7 0-5 4-7 4-12 0-3-2-5-5-5-3 0-5 2-5 6" />
+        <path d="M9 23a12 12 0 1 1 23 5c-2 3-5 4-6 8m-9-16a5 5 0 0 1 10 0c0 4-4 5-4 9" />
+      </symbol>
+      <symbol id="desenho-gastro" viewBox="0 0 48 48">
+        <path d="M19 8v12c0 3-2 5-5 5h-2v7c0 7 5 11 12 11 9 0 15-6 15-14 0-6-4-10-10-10h-2V8" />
+        <path d="M19 12h8m-15 17c4 0 7-2 8-6m1 18c2-7 6-11 14-12" />
+      </symbol>
+      <symbol id="desenho-urologia" viewBox="0 0 48 48">
+        <path d="M18 11c-6-3-11 2-11 10 0 7 3 12 8 12 4 0 6-4 6-9V16c0-2-1-4-3-5Zm12 0c6-3 11 2 11 10 0 7-3 12-8 12-4 0-6-4-6-9V16c0-2 1-4 3-5ZM24 21v12m0 0c0 5-4 7-4 10m4-10c0 5 4 7 4 10" />
+      </symbol>
+    </svg>
+    <header class="topbar">
+      <a class="marca" href="#" aria-label="BemViver, início">
+        <span class="marca-simbolo" aria-hidden="true">+</span>
+        <span>bem<span class="marca-destaque">viver</span></span>
+      </a>
+      <nav class="navegacao" aria-label="Navegação principal">
+        <a href="#inicio">Início</a>
+        <a href="#buscar">Encontre um profissional</a>
+        <a href="#como-funciona">Como funciona</a>
+      </nav>
+      <div class="acoes-cabecalho">
+        <a class="link-area-profissional" href="./acesso.html">Acesso da equipe</a>
+        <a class="botao botao-contorno" href="#buscar">Agendar consulta</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="apresentacao" id="inicio">
+        <div class="apresentacao-texto">
+          <p class="sobretitulo"><span aria-hidden="true">✳</span> SUA SAÚDE, NO SEU TEMPO</p>
+          <h1>Encontre um profissional e agende sua <span>consulta on-line.</span></h1>
+          <p class="resumo">Explore especialidades, conheça opções de atendimento e escolha o horário que funciona melhor para você.</p>
+          <div class="acoes-apresentacao">
+            <a class="botao botao-principal" href="#buscar">Agendar consulta</a>
+            <a class="botao botao-secundario" href="#especialidades">Ver especialidades</a>
+          </div>
+        </div>
+        <div class="imagem-apresentacao">
+          <img
+            src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&amp;fit=crop&amp;w=1200&amp;q=85"
+            alt="Profissional de saúde sorrindo em seu consultório"
+            referrerpolicy="no-referrer"
+          />
+          <div class="cartao-imagem">
+            <span class="icone-imagem" aria-hidden="true">✚</span>
+            <span><strong>Cuidar de você</strong><small>começa com uma boa escolha</small></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="busca-cartao" id="buscar" aria-labelledby="titulo-busca">
+        <div class="busca-cabecalho">
+          <div>
+            <p class="passo-legenda">ENCONTRE SEU PROFISSIONAL</p>
+            <h2 id="titulo-busca">Que tipo de profissional você está procurando?</h2>
+          </div>
+        </div>
+        <div class="catalogo-cabecalho">
+          <div>
+            <h3>Especialidades populares</h3>
+            <p>Escolha uma área para ver profissionais e horários disponíveis.</p>
+          </div>
+          <span>14 opções</span>
+        </div>
+        <div class="atalhos-especialidade" id="especialidades" aria-label="Catálogo de especialidades">
+          <button type="button" class="atalho-especialidade" data-especialidade="Clínica geral">
+            <span class="icone-especialidade icone-clinica" aria-hidden="true"><svg class="desenho-especialidade"><use href="#desenho-clinica"></use></svg></span>
+            <span>Clínica geral</span>
+          </button>
+          <button type="button" class="atalho-especialidade" data-especialidade="Psicologia">
+            <span class="icone-especialidade icone-psicologia" aria-hidden="true"><svg class="desenho-especialidade"><use href="#desenho-psicologia"></use></svg></span>
+            <span>Psicologia</span>
+          </button>
+          <button type="button" class="atalho-especialidade" data-especialidade="Dermatologia">
+            <span class="icone-especialidade icone-dermatologia" aria-hidden="true"><svg class="desenho-especialidade"><use href="#desenho-dermatologia"></use></svg></span>
+            <span>Dermatologia</span>
+          </button>
+          <button type="button" class="atalho-especialidade" data-especialidade="Cardiologia">
+            <span class="icone-especialidade icone-cardiologia" aria-hidden="true"><svg class="desenho-especialidade"><use href="#desenho-cardiologia"></use></svg></span>
+            <span>Cardiologia</span>
+          </button>
+          <button type="button" class="atalho-especialidade" data-especialidade="Pediatria">
+            <span class="icone-especialidade icone-pediatria" aria-hidden="true"><svg class="desenho-especialidade"><use href="#desenho-pediatria"></use></svg></span>
+            <span>Pediatria</span>
+          </button>
+          <button type="button" class="atalho-especialidade" data-especialidade="Ginecologia e obstetrícia">
+            <span class="icone-especialidade icone-ginecologia" aria-hidden="true"><svg class="desenho-especialidade"><use href="#desenho-ginecologia"></use></svg></span>
+            <span>Ginecologia e obstetrícia</span>
+          </button>
+          <button type="button" class="atalho-especialidade" data-especialidade="Ortopedia e traumatologia">
+            <span class="icone-especialidade icone-ortopedia" aria-hidden="true"><svg class="desenho-especialidade"><use href="#desenho-ortopedia"></use></svg></span>
+            <span>Ortopedia e traumatologia</span>
+          </button>
+          <button type="button" class="atalho-especialidade" data-especialidade="Neurologia">
+            <span class="icone-especialidade icone-neurologia" aria-hidden="true"><svg class="desenho-especialidade"><use href="#desenho-neurologia"></use></svg></span>
+            <span>Neurologia</span>
+          </button>
+          <button type="button" class="atalho-especialidade" data-especialidade="Psiquiatria">
+            <span class="icone-especialidade icone-psiquiatria" aria-hidden="true"><svg class="desenho-especialidade"><use href="#desenho-psiquiatria"></use></svg></span>
+            <span>Psiquiatria</span>
+          </button>
+          <button type="button" class="atalho-especialidade" data-especialidade="Oftalmologia">
+            <span class="icone-especialidade icone-oftalmologia" aria-hidden="true"><svg class="desenho-especialidade"><use href="#desenho-oftalmologia"></use></svg></span>
+            <span>Oftalmologia</span>
+          </button>
+          <button type="button" class="atalho-especialidade" data-especialidade="Endocrinologia">
+            <span class="icone-especialidade icone-endocrinologia" aria-hidden="true"><svg class="desenho-especialidade"><use href="#desenho-endocrinologia"></use></svg></span>
+            <span>Endocrinologia</span>
+          </button>
+          <button type="button" class="atalho-especialidade" data-especialidade="Otorrinolaringologia">
+            <span class="icone-especialidade icone-otorrino" aria-hidden="true"><svg class="desenho-especialidade"><use href="#desenho-otorrino"></use></svg></span>
+            <span>Otorrinolaringologia</span>
+          </button>
+          <button type="button" class="atalho-especialidade" data-especialidade="Gastroenterologia">
+            <span class="icone-especialidade icone-gastro" aria-hidden="true"><svg class="desenho-especialidade"><use href="#desenho-gastro"></use></svg></span>
+            <span>Gastroenterologia</span>
+          </button>
+          <button type="button" class="atalho-especialidade" data-especialidade="Urologia">
+            <span class="icone-especialidade icone-urologia" aria-hidden="true"><svg class="desenho-especialidade"><use href="#desenho-urologia"></use></svg></span>
+            <span>Urologia</span>
+          </button>
+        </div>
+        <form id="form-busca" class="form-busca">
+          <label class="campo-busca">
+            <span class="campo-icone" aria-hidden="true">⌕</span>
+            <span class="campo-conteudo">
+              <span class="campo-titulo">Especialidade</span>
+              <select id="especialidade" name="especialidade" aria-label="Escolha uma especialidade">
+                <option value="">Todas as especialidades</option>
+              </select>
+            </span>
+          </label>
+          <label class="campo-busca campo-cidade">
+            <span class="campo-icone" aria-hidden="true">⌖</span>
+            <span class="campo-conteudo">
+              <span class="campo-titulo">Onde?</span>
+              <input id="cidade" name="cidade" type="text" aria-label="Digite ou escolha uma cidade do Brasil" aria-autocomplete="list" aria-controls="lista-cidades" aria-expanded="false" autocomplete="off" placeholder="Digite ou escolha uma cidade" />
+            </span>
+            <div id="lista-cidades" class="sugestoes-cidades" role="listbox" aria-label="Cidades brasileiras" hidden></div>
+          </label>
+          <label class="campo-busca">
+            <span class="campo-icone" aria-hidden="true">♡</span>
+            <span class="campo-conteudo">
+              <span class="campo-titulo">Tipo de atendimento</span>
+              <select id="modalidade" name="modalidade" aria-label="Escolha o tipo de atendimento">
+                <option value="">Presencial ou on-line</option>
+                <option value="Presencial">Presencial</option>
+                <option value="Teleconsulta">Teleconsulta</option>
+              </select>
+            </span>
+          </label>
+          <button class="botao botao-busca" type="submit"><span aria-hidden="true">⌕</span> Buscar</button>
+        </form>
+        <p class="aviso-ambiente">Os perfis e horários ainda não estão conectados às agendas dos profissionais. Os pedidos feitos aqui não chegam a eles.</p>
+      </section>
+
+      <section class="resultados" id="resultados" aria-labelledby="titulo-resultados">
+        <div class="resultados-cabecalho">
+          <div>
+            <p class="passo-legenda">PASSO 2 · ESCOLHA</p>
+            <h2 id="titulo-resultados">Profissionais disponíveis</h2>
+            <p id="resumo-resultados" class="texto-secundario">Carregando profissionais…</p>
+          </div>
+          <label class="ordenacao">Ordenar por
+            <select id="ordenacao" aria-label="Ordenar profissionais">
+              <option value="proximo">Próximo horário</option>
+              <option value="nome">Nome</option>
+            </select>
+          </label>
+        </div>
+        <div id="mensagem" class="mensagem" role="status" aria-live="polite"></div>
+        <div id="lista-profissionais" class="lista-profissionais"></div>
+      </section>
+
+      <section class="guia-etapas" id="como-funciona" aria-labelledby="titulo-etapas">
+        <div class="etapas-conteudo">
+          <div class="titulo-etapas">
+            <p class="passo-legenda">UMA JORNADA SIMPLES</p>
+            <h2 id="titulo-etapas">Sua consulta em três passos</h2>
+          </div>
+          <ol class="cartoes-etapas">
+            <li class="cartao-etapa">
+              <span class="icone-etapa" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <circle cx="10.8" cy="10.8" r="6.8"></circle>
+                  <path d="m16 16 4.3 4.3"></path>
+                </svg>
+              </span>
+              <span class="numero-etapa">Passo 1</span>
+              <h3>Encontre sua especialidade</h3>
+              <p>Explore as opções de cuidado e escolha a especialidade que você procura.</p>
+            </li>
+            <li class="cartao-etapa">
+              <span class="icone-etapa" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <rect x="3.5" y="5.5" width="17" height="15" rx="2"></rect>
+                  <path d="M7.5 3.5v4M16.5 3.5v4M3.5 10h17M8 14h2m4 0h2m-8 3h2"></path>
+                </svg>
+              </span>
+              <span class="numero-etapa">Passo 2</span>
+              <h3>Escolha quem e quando</h3>
+              <p>Compare profissionais e selecione um dos horários disponíveis.</p>
+            </li>
+            <li class="cartao-etapa">
+              <span class="icone-etapa" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M20 11.1a7.8 7.8 0 0 1-8 7.8 8.5 8.5 0 0 1-3.5-.8L4 20l1.5-4A7.5 7.5 0 0 1 4 11.1a8 8 0 0 1 16 0Z"></path>
+                  <path d="m9 11.5 2 2 4-4"></path>
+                </svg>
+              </span>
+              <span class="numero-etapa">Passo 3</span>
+              <h3>Revise e confirme</h3>
+              <p>Confira o resumo e conclua seu agendamento.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="rodape">
+      <a class="marca marca-rodape" href="#"><span class="marca-simbolo" aria-hidden="true">+</span><span>bem<span class="marca-destaque">viver</span></span></a>
+      <p>O BemViver não substitui orientação ou atendimento médico.</p>
+      <a href="./acesso.html?perfil=administrador" aria-label="Entrar na área administrativa">Acesso administrativo</a>
+    </footer>
+
+    <dialog id="dialogo-agendamento" class="dialogo">
+      <form id="form-agendamento" class="form-agendamento">
+        <button type="button" class="fechar-dialogo" aria-label="Fechar janela">×</button>
+        <p class="passo-legenda">PASSO 3 · CONFIRME</p>
+        <h2>Quase lá! Quem vai à consulta?</h2>
+        <p class="texto-secundario">As informações são armazenadas neste computador e não são enviadas aos profissionais; este registro não confirma uma consulta.</p>
+        <div id="resumo-escolha" class="resumo-escolha"></div>
+        <label class="campo-formulario">Nome
+          <input name="nome" autocomplete="name" minlength="3" maxlength="100" placeholder="Ex.: Pessoa de Teste" required />
+        </label>
+        <div class="campos-duplos">
+          <label class="campo-formulario">E-mail
+            <input name="email" type="email" autocomplete="email" maxlength="160" placeholder="teste@exemplo.com" required />
+          </label>
+          <label class="campo-formulario">Telefone
+            <input name="telefone" type="tel" autocomplete="tel" minlength="10" maxlength="20" placeholder="(11) 99999-9999" required />
+          </label>
+        </div>
+        <p id="erro-agendamento" class="erro-formulario" role="alert"></p>
+        <button class="botao botao-busca botao-confirmar" type="submit">Confirmar agendamento</button>
+        <button type="button" class="botao-texto" id="cancelar-agendamento">Voltar e escolher outro horário</button>
+      </form>
+    </dialog>
+
+  </body>
+</html>

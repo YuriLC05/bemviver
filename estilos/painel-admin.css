@@ -1,0 +1,150 @@
+:root {
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #282936;
+  background: #f6f7fb;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --roxo: #5b57a6;
+  --suave: #707381;
+  --borda: #e8e9ef;
+}
+
+* { box-sizing: border-box; }
+html { min-width: 320px; overflow-x: clip; }
+body { min-width: 320px; margin: 0; }
+button, input, select { font: inherit; }
+a { color: inherit; text-decoration: none; }
+button, select { cursor: pointer; }
+:focus-visible { outline: 3px solid #8cc9a4; outline-offset: 3px; }
+
+.cabecalho-admin, .conteudo-admin, .rodape-admin { width: min(1200px, calc(100% - 48px)); margin-inline: auto; }
+.cabecalho-admin { display: flex; min-height: 78px; align-items: center; justify-content: space-between; gap: 20px; border-bottom: 1px solid #e8e9ef; background: #fff; }
+body { background: linear-gradient(#fff 0 78px, #f6f7fb 78px); }
+.marca { display: inline-flex; align-items: center; gap: 9px; color: var(--roxo); font-size: 21px; font-weight: 800; letter-spacing: -1px; }
+.marca > span:last-child > span { color: #383740; }
+.marca-simbolo { display: grid; width: 31px; height: 31px; place-items: center; border-radius: 50%; background: var(--roxo); color: #fff; font-size: 24px; font-weight: 500; line-height: 1; }
+.navegacao-admin { display: flex; align-items: center; gap: 20px; color: #555765; font-size: 13px; font-weight: 600; }
+.navegacao-admin a:hover, .rodape-admin > a:last-child:hover { color: var(--roxo); }
+.botao-sair-admin { min-height: 36px; padding: 0 11px; border: 1px solid #e2e2eb; border-radius: 7px; background: #fff; color: #555765; font-size: 12px; font-weight: 650; }
+.botao-sair-admin:hover { border-color: #c9c7dc; color: var(--roxo); }
+.conteudo-admin { padding-top: 37px; padding-bottom: 38px; }
+.boas-vindas-admin { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; }
+.sobretitulo { margin: 0; color: var(--roxo); font-size: 11px; font-weight: 700; letter-spacing: 1.1px; }
+h1, h2, p { margin-top: 0; }
+.boas-vindas-admin h1 { margin: 8px 0 6px; color: #282936; font-size: clamp(29px, 3vw, 37px); letter-spacing: -1.3px; }
+.texto-introdutorio { margin: 0; color: var(--suave); font-size: 16px; line-height: 1.6; }
+.selo-plataforma { display: inline-flex; align-items: center; gap: 8px; padding: 9px 13px; border: 1px solid #e3e1f1; border-radius: 24px; background: #fff; color: #59559e; font-size: 13px; font-weight: 700; white-space: nowrap; }
+.aviso-demonstracao { display: flex; align-items: center; gap: 12px; margin-top: 24px; padding: 14px 16px; border: 1px solid #f1e2bd; border-radius: 10px; background: #fffaf0; color: #665a3e; }
+.aviso-icone { display: grid; width: 26px; height: 26px; flex: 0 0 auto; place-items: center; border-radius: 50%; background: #f5e5bb; color: #775c21; font-size: 14px; font-weight: 800; }
+.aviso-demonstracao p { margin: 0; font-size: 13px; line-height: 1.6; }
+.aviso-demonstracao strong { color: #514421; }
+.mensagem-admin:empty { display: none; }
+.mensagem-admin { margin-top: 17px; padding: 12px 14px; border: 1px solid #cae7d4; border-radius: 8px; background: #f1faf4; color: #276843; font-size: 14px; line-height: 1.5; }
+.mensagem-admin.erro { border-color: #f0d7d1; background: #fff6f4; color: #a44a3a; }
+.resumo-admin { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: 22px; }
+.cartao-resumo-admin { display: flex; min-height: 112px; align-items: center; gap: 13px; padding: 17px; border: 1px solid var(--borda); border-radius: 12px; background: #fff; box-shadow: 0 7px 22px #292b3d08; }
+.icone-resumo { display: grid; width: 44px; height: 44px; flex: 0 0 auto; place-items: center; border-radius: 13px; font-size: 21px; font-weight: 700; }
+.icone-profissionais { background: #efeffb; color: #605bad; }
+.icone-horarios { background: #eaf7ef; color: #2e9b60; }
+.icone-confirmados { background: #e9f7f3; color: #318b78; }
+.icone-cancelados { background: #f3effa; color: #8171b7; }
+.texto-resumo { display: grid; gap: 2px; color: #696b78; font-size: 12px; line-height: 1.4; }
+.texto-resumo strong { color: #2e303d; font-size: 25px; line-height: 1.2; }
+.texto-resumo small { color: #858794; font-size: 11px; line-height: 1.4; }
+.secao-admin { margin-top: 20px; padding: 22px; border: 1px solid var(--borda); border-radius: 12px; background: #fff; box-shadow: 0 7px 22px #292b3d08; scroll-margin-top: 20px; }
+.contador-pendentes { display: inline-grid; min-width: 24px; height: 24px; margin-left: 4px; place-items: center; border-radius: 50%; background: #fff1dc; color: #9a641b; font-size: 12px; vertical-align: 2px; }
+.lista-solicitacoes { display: grid; gap: 11px; margin-top: 16px; }
+.cartao-solicitacao { padding: 15px; border: 1px solid #e8e9ef; border-left: 3px solid #d5a248; border-radius: 9px; }
+.cabecalho-solicitacao { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.dados-solicitacao { display: grid; gap: 4px; }
+.dados-solicitacao strong { color: #353642; font-size: 15px; }
+.dados-solicitacao span { color: #747684; font-size: 12px; }
+.prazo-solicitacao { flex: 0 0 auto; padding: 6px 9px; border-radius: 18px; background: #fff5e4; color: #8a5a18; font-size: 11px; font-weight: 700; }
+.detalhes-solicitacao { display: grid; gap: 5px; margin-top: 12px; color: #626471; font-size: 12px; overflow-wrap: anywhere; }
+.acoes-solicitacao { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.botao-aprovar, .botao-rejeitar { min-height: 38px; padding: 0 12px; border: 1px solid transparent; border-radius: 7px; font-size: 12px; font-weight: 700; }
+.botao-aprovar { background: #eaf7ef; color: #277b49; }
+.botao-aprovar:hover { background: #d9f0e2; }
+.botao-rejeitar { border-color: #efdad7; background: #fff9f8; color: #a44e42; }
+.botao-rejeitar:hover { background: #fff1ee; }
+.cabecalho-secao-admin { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.cabecalho-secao-admin h2 { margin: 5px 0 0; color: #30313d; font-size: 20px; letter-spacing: -.4px; }
+.ajuda-secao-admin { margin: 7px 0 0; color: #777987; font-size: 13px; line-height: 1.55; }
+.botao-atualizar, .botao-limpar { min-height: 40px; padding: 0 13px; border: 1px solid #dcd9ef; border-radius: 8px; background: #f7f6fc; color: #514d96; font-size: 12px; font-weight: 700; }
+.botao-atualizar:hover, .botao-limpar:hover { border-color: #bcb8df; background: #efeffa; }
+.botao-atualizar:disabled { cursor: wait; opacity: .6; }
+.filtros-admin { display: grid; grid-template-columns: 1.2fr 1fr 1fr auto; align-items: end; gap: 11px; margin-top: 18px; padding: 15px; border-radius: 9px; background: #f8f8fb; }
+.filtros-admin label { display: grid; min-width: 0; gap: 6px; color: #5f6170; font-size: 12px; font-weight: 650; }
+.filtros-admin select, .filtros-admin input { width: 100%; min-width: 0; min-height: 42px; padding: 0 10px; border: 1px solid #dfe1e9; border-radius: 7px; background: #fff; color: #343643; font-size: 13px; }
+.quantidade-agendamentos { margin: 17px 0 10px; color: #777987; font-size: 12px; }
+.lista-agendamentos-admin { display: grid; gap: 9px; }
+.cartao-agendamento-admin { padding: 14px 15px; border: 1px solid #e8e9ef; border-radius: 9px; }
+.topo-agendamento-admin { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.data-agendamento-admin { color: #333541; font-size: 14px; }
+.status-agendamento-admin { padding: 5px 9px; border-radius: 20px; background: #eaf7ef; color: #277b49; font-size: 11px; font-weight: 700; white-space: nowrap; }
+.status-agendamento-admin.cancelado { background: #f2f2f5; color: #737582; }
+.paciente-agendamento-admin { margin: 10px 0 3px; color: #353642; font-size: 14px; font-weight: 700; }
+.detalhes-agendamento-admin { margin: 0; color: #747684; font-size: 12px; line-height: 1.5; }
+.estado-vazio-admin { padding: 24px 14px; border: 1px dashed #dedfe7; border-radius: 9px; color: #717380; text-align: center; font-size: 13px; line-height: 1.6; }
+.estado-vazio-admin strong, .estado-vazio-admin span { display: block; }
+.estado-vazio-admin strong { margin-bottom: 4px; color: #444552; font-size: 15px; }
+.lista-profissionais-admin { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 17px; }
+.cartao-profissional-admin { display: grid; grid-template-columns: 42px minmax(0, 1fr) auto; align-items: center; gap: 10px; padding: 13px; border: 1px solid #e8e9ef; border-radius: 9px; }
+.avatar-admin { display: grid; width: 40px; height: 40px; place-items: center; border-radius: 50%; background: #efeffb; color: #605bad; font-size: 12px; font-weight: 750; }
+.informacoes-profissional-admin { display: grid; min-width: 0; gap: 3px; }
+.informacoes-profissional-admin strong { overflow: hidden; color: #353642; font-size: 13px; text-overflow: ellipsis; white-space: nowrap; }
+.informacoes-profissional-admin span { overflow: hidden; color: #777987; font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }
+.disponibilidade-admin { grid-column: 3; grid-row: 1; padding: 5px 8px; border-radius: 16px; background: #eaf7ef; color: #277b49; font-size: 10px; font-weight: 700; white-space: nowrap; }
+.modalidades-admin { grid-column: 2 / -1; color: #777987; font-size: 11px; }
+.rodape-admin { display: flex; min-height: 73px; align-items: center; justify-content: space-between; gap: 15px; border-top: 1px solid #ececf0; }
+.marca-rodape { font-size: 17px; }
+.marca-rodape .marca-simbolo { width: 25px; height: 25px; font-size: 20px; }
+.rodape-admin p, .rodape-admin > a:last-child { margin: 0; color: #73737f; font-size: 11px; }
+
+@media (max-width: 900px) {
+  .cabecalho-admin, .conteudo-admin, .rodape-admin { width: min(100% - 36px, 700px); }
+  .resumo-admin { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .filtros-admin { grid-template-columns: 1fr 1fr; }
+  .lista-profissionais-admin { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 560px) {
+  .cabecalho-admin, .conteudo-admin, .rodape-admin { width: calc(100% - 28px); }
+  .cabecalho-admin { min-height: 67px; }
+  .marca { font-size: 19px; }
+  .marca-simbolo { width: 28px; height: 28px; font-size: 21px; }
+  .navegacao-admin { gap: 12px; }
+  .navegacao-admin a:first-child { display: none; }
+  .navegacao-admin a { font-size: 12px; }
+  .botao-sair-admin { min-height: 34px; padding-inline: 8px; font-size: 11px; white-space: nowrap; }
+  .conteudo-admin { padding-top: 25px; }
+  .boas-vindas-admin { align-items: flex-start; flex-direction: column; }
+  .boas-vindas-admin h1 { font-size: 28px; }
+  .texto-introdutorio { font-size: 15px; }
+  .selo-plataforma { display: none; }
+  .aviso-demonstracao { align-items: flex-start; padding: 12px; }
+  .aviso-demonstracao p { font-size: 12px; }
+  .resumo-admin { gap: 9px; }
+  .cartao-resumo-admin { min-height: 96px; gap: 9px; padding: 11px; }
+  .icone-resumo { width: 36px; height: 36px; font-size: 18px; }
+  .texto-resumo { font-size: 11px; }
+  .texto-resumo strong { font-size: 22px; }
+  .texto-resumo small { font-size: 10px; }
+  .secao-admin { padding: 16px; }
+  .cabecalho-secao-admin { align-items: flex-start; }
+  .cabecalho-secao-admin h2 { font-size: 18px; }
+  .ajuda-secao-admin { font-size: 12px; }
+  .botao-atualizar { min-height: 36px; padding-inline: 9px; font-size: 11px; white-space: nowrap; }
+  .acoes-solicitacao { flex-direction: column; }
+  .acoes-solicitacao button { width: 100%; }
+  .filtros-admin { grid-template-columns: 1fr; gap: 9px; padding: 12px; }
+  .botao-limpar { width: 100%; }
+  .cartao-profissional-admin { grid-template-columns: 36px minmax(0, 1fr); gap: 8px; padding: 11px; }
+  .avatar-admin { width: 34px; height: 34px; }
+  .disponibilidade-admin { grid-column: 2; grid-row: 2; width: fit-content; }
+  .modalidades-admin { grid-column: 2; }
+  .rodape-admin { flex-wrap: wrap; justify-content: space-between; padding: 14px 0; }
+  .rodape-admin p { order: 2; flex-basis: 100%; }
+  .rodape-admin > a:last-child { font-size: 11px; }
+}

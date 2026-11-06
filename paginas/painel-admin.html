@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f6f7fb" />
+    <meta name="description" content="Painel administrativo da plataforma BemViver." />
+    <meta name="api-base" content="http://localhost:3000/api" />
+    <title>Área administrativa — BemViver</title>
+    <link rel="stylesheet" href="../estilos/painel-admin.css" />
+    <script src="../scripts/painel-admin.js" defer></script>
+  </head>
+  <body>
+    <header class="cabecalho-admin">
+      <a class="marca" href="./index.html" aria-label="BemViver, voltar para a busca de consultas">
+        <span class="marca-simbolo" aria-hidden="true">+</span>
+        <span>bem<span>viver</span></span>
+      </a>
+      <nav class="navegacao-admin" aria-label="Navegação administrativa">
+        <a href="./index.html">Buscar consultas</a>
+        <button id="sair-conta" class="botao-sair-admin" type="button">Sair da conta</button>
+      </nav>
+    </header>
+
+    <main class="conteudo-admin">
+      <section class="boas-vindas-admin">
+        <div>
+          <p class="sobretitulo">ÁREA ADMINISTRATIVA</p>
+          <h1>Visão geral da plataforma</h1>
+          <p class="texto-introdutorio">Acompanhe os profissionais, a disponibilidade e os agendamentos.</p>
+        </div>
+        <span class="selo-plataforma"><span aria-hidden="true">✦</span> BemViver</span>
+      </section>
+
+      <p id="mensagem-admin" class="mensagem-admin" role="status" aria-live="polite"></p>
+
+      <section class="resumo-admin" aria-label="Indicadores da plataforma">
+        <article class="cartao-resumo-admin">
+          <span class="icone-resumo icone-profissionais" aria-hidden="true">✚</span>
+          <span class="texto-resumo"><span>Profissionais cadastrados</span><strong id="total-profissionais">—</strong><small>perfis ativos na lista</small></span>
+        </article>
+        <article class="cartao-resumo-admin">
+          <span class="icone-resumo icone-horarios" aria-hidden="true">◷</span>
+          <span class="texto-resumo"><span>Horários disponíveis</span><strong id="total-horarios">—</strong><small>horários futuros para agendamento</small></span>
+        </article>
+        <article class="cartao-resumo-admin">
+          <span class="icone-resumo icone-confirmados" aria-hidden="true">✓</span>
+          <span class="texto-resumo"><span>Consultas confirmadas</span><strong id="total-confirmados">—</strong><small>agendamentos registrados</small></span>
+        </article>
+        <article class="cartao-resumo-admin">
+          <span class="icone-resumo icone-cancelados" aria-hidden="true">↶</span>
+          <span class="texto-resumo"><span>Consultas canceladas</span><strong id="total-cancelados">—</strong><small>registros mantidos no histórico</small></span>
+        </article>
+      </section>
+
+      <section class="secao-admin" id="solicitacoes" aria-labelledby="titulo-solicitacoes">
+        <div class="cabecalho-secao-admin">
+          <div>
+            <p class="sobretitulo">VALIDAÇÃO DE PROFISSIONAIS</p>
+            <h2 id="titulo-solicitacoes">Solicitações para analisar <span id="total-pendentes" class="contador-pendentes">0</span></h2>
+            <p class="ajuda-secao-admin">Confira o CRM no conselho regional correspondente antes de aprovar. O prazo é de três dias úteis.</p>
+          </div>
+        </div>
+        <div id="lista-solicitacoes" class="lista-solicitacoes"></div>
+      </section>
+
+      <section class="secao-admin secao-agendamentos" id="agendamentos" aria-labelledby="titulo-agendamentos">
+        <div class="cabecalho-secao-admin">
+          <div>
+            <p class="sobretitulo">ACOMPANHAMENTO</p>
+            <h2 id="titulo-agendamentos">Agendamentos</h2>
+            <p class="ajuda-secao-admin">A lista mostra apenas o nome do paciente, sem e-mail ou telefone.</p>
+          </div>
+          <button id="atualizar-painel" class="botao-atualizar" type="button">Atualizar dados <span aria-hidden="true">↻</span></button>
+        </div>
+
+        <form id="filtros-admin" class="filtros-admin">
+          <label>Profissional
+            <select id="filtro-profissional">
+              <option value="">Todos os profissionais</option>
+            </select>
+          </label>
+          <label>Data
+            <input id="filtro-data" type="date" />
+          </label>
+          <label>Situação
+            <select id="filtro-status">
+              <option value="">Todas as situações</option>
+              <option value="confirmado">Confirmada</option>
+              <option value="cancelado">Cancelada</option>
+            </select>
+          </label>
+          <button class="botao-limpar" type="reset">Limpar filtros</button>
+        </form>
+
+        <p id="quantidade-agendamentos" class="quantidade-agendamentos" aria-live="polite"></p>
+        <div id="lista-agendamentos-admin" class="lista-agendamentos-admin"></div>
+      </section>
+
+      <section class="secao-admin" id="profissionais" aria-labelledby="titulo-profissionais">
+        <div class="cabecalho-secao-admin">
+          <div>
+            <p class="sobretitulo">CADASTROS</p>
+            <h2 id="titulo-profissionais">Profissionais</h2>
+            <p class="ajuda-secao-admin">Resumo dos perfis cadastrados e dos horários futuros publicados.</p>
+          </div>
+        </div>
+        <div id="lista-profissionais-admin" class="lista-profissionais-admin"></div>
+      </section>
+    </main>
+
+    <footer class="rodape-admin">
+      <a class="marca marca-rodape" href="./index.html"><span class="marca-simbolo" aria-hidden="true">+</span><span>bem<span>viver</span></span></a>
+      <a href="./index.html">Voltar à busca de consultas</a>
+    </footer>
+  </body>
+</html>

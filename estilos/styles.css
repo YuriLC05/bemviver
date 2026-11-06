@@ -1,0 +1,252 @@
+:root {
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #24242e;
+  background: #fff;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --roxo: #5b57a6;
+  --roxo-escuro: #484582;
+  --roxo-claro: #f0effa;
+  --verde: #28a966;
+  --verde-escuro: #208b55;
+  --texto-suave: #666b78;
+  --borda: #e8e8ed;
+  --titulo: "Segoe UI", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { min-width: 320px; overflow-x: clip; scroll-behavior: smooth; }
+body { margin: 0; min-width: 320px; }
+button, input, select { font: inherit; }
+button, select { cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+button:focus-visible, a:focus-visible, select:focus-visible, input:focus-visible { outline: 3px solid #8cc9a4; outline-offset: 3px; }
+
+.topbar, main, .rodape { width: min(1200px, calc(100% - 48px)); margin-inline: auto; }
+.topbar { position: relative; z-index: 3; display: flex; height: 80px; align-items: center; justify-content: space-between; border-bottom: 1px solid #ededf0; }
+.marca { display: inline-flex; align-items: center; gap: 9px; color: var(--roxo); font: 800 22px var(--titulo); letter-spacing: -1px; }
+.marca-simbolo { display: grid; width: 31px; height: 31px; place-items: center; border-radius: 50%; background: var(--roxo); color: #fff; font: 500 24px/1 "Segoe UI", Arial, sans-serif; }
+.marca-destaque { color: #383740; }
+.navegacao { display: flex; height: 100%; align-items: center; gap: clamp(18px, 3vw, 40px); color: #555765; font-size: 14px; font-weight: 600; }
+.navegacao a { display: grid; height: 100%; align-items: center; border-bottom: 3px solid transparent; }
+.navegacao a:hover, .navegacao a:first-child { border-bottom-color: var(--roxo); color: var(--roxo); }
+.acoes-cabecalho { display: flex; align-items: center; gap: 16px; }
+.link-area-profissional { color: #555765; font-size: 13px; font-weight: 600; }
+.link-area-profissional:hover { color: var(--roxo); }
+.botao { display: inline-flex; min-height: 45px; align-items: center; justify-content: center; gap: 12px; padding: 0 22px; border: 1px solid transparent; border-radius: 28px; font-size: 14px; font-weight: 700; transition: background .16s, color .16s, transform .16s, box-shadow .16s; }
+.botao:active { transform: translateY(1px); }
+.botao-contorno { min-height: 41px; border-color: #d7d6e8; color: var(--roxo); }
+.botao-contorno:hover { border-color: var(--roxo); background: var(--roxo-claro); }
+.botao-principal { background: var(--verde); color: #fff; box-shadow: 0 7px 17px #28a96624; }
+.botao-principal:hover { background: var(--verde-escuro); }
+.botao-secundario { border-color: var(--verde); color: var(--verde-escuro); }
+.botao-secundario:hover { background: #eff9f3; }
+
+.apresentacao { display: grid; min-height: 490px; grid-template-columns: .92fr 1.08fr; align-items: center; gap: 42px; padding: 49px 0 48px; }
+.apresentacao-texto { max-width: 500px; padding-left: 10px; }
+.sobretitulo, .passo-legenda { margin: 0; color: var(--roxo); font-size: 11px; font-weight: 700; letter-spacing: 1.1px; }
+.sobretitulo { display: flex; align-items: center; gap: 8px; }
+.sobretitulo span { color: var(--verde); font-size: 17px; }
+h1, h2, p { margin-top: 0; }
+h1, h2 { font-family: var(--titulo); }
+h1 { margin: 18px 0 16px; color: #262630; font-size: clamp(39px, 4.5vw, 59px); font-weight: 750; letter-spacing: -2.6px; line-height: 1.09; }
+h1 span { color: #7772cb; }
+.resumo { max-width: 435px; margin: 0; color: #666b78; font-size: 17px; line-height: 1.7; }
+.acoes-apresentacao { display: flex; flex-wrap: wrap; gap: 11px; margin-top: 25px; }
+.imagem-apresentacao { position: relative; min-width: 0; height: 380px; overflow: visible; border-radius: 22px; background: #d9d5f4; }
+.imagem-apresentacao::before { position: absolute; z-index: 1; inset: 0; border-radius: inherit; background: linear-gradient(115deg, #7974c14c, transparent 53%, #54b89022); content: ""; pointer-events: none; }
+.imagem-apresentacao img { display: block; width: 100%; height: 100%; border-radius: inherit; object-fit: cover; object-position: center 39%; }
+.cartao-imagem { position: absolute; z-index: 2; right: 20px; bottom: 20px; display: flex; min-width: 220px; align-items: center; gap: 11px; padding: 13px 15px; border: 1px solid #ffffffac; border-radius: 13px; background: #fffffff0; box-shadow: 0 9px 28px #25244a20; }
+.icone-imagem { display: grid; width: 36px; height: 36px; place-items: center; border-radius: 11px; background: #eeedf9; color: var(--roxo); font-size: 22px; }
+.cartao-imagem strong, .cartao-imagem small { display: block; }
+.cartao-imagem strong { color: #393844; font-size: 14px; }
+.cartao-imagem small { margin-top: 3px; color: #747582; font-size: 12px; }
+
+.busca-cartao { position: relative; z-index: 2; padding: 31px 32px 28px; border: 1px solid #e9e9ee; border-radius: 16px; background: #fff; box-shadow: 0 14px 40px #33334d0d; scroll-margin-top: 20px; }
+.busca-cabecalho, .resultados-cabecalho { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+.busca-cabecalho h2, .resultados-cabecalho h2, .como-texto h2 { margin: 7px 0 0; color: #2d2c37; font-size: 23px; font-weight: 700; letter-spacing: -.5px; }
+.catalogo-cabecalho { display: flex; align-items: end; justify-content: space-between; gap: 16px; margin: 22px 0 12px; }
+.catalogo-cabecalho h3 { margin: 0; color: #393844; font-size: 15px; }
+.catalogo-cabecalho p { margin: 4px 0 0; color: #777987; font-size: 12px; line-height: 1.5; }
+.catalogo-cabecalho > span { flex: 0 0 auto; padding: 6px 9px; border-radius: 20px; background: #f2f1fa; color: var(--roxo); font-size: 11px; font-weight: 700; }
+.atalhos-especialidade { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin: 0 0 21px; }
+.atalho-especialidade { display: grid; min-height: 102px; align-content: center; justify-items: center; gap: 9px; padding: 10px 8px; border: 1px solid #e8e8ef; border-radius: 11px; background: #fff; color: #41414d; font-size: 13px; font-weight: 650; line-height: 1.35; text-align: center; transition: border-color .16s, background .16s, color .16s, transform .16s; }
+.atalho-especialidade:hover { transform: translateY(-2px); border-color: #cfcced; background: #faf9ff; color: var(--roxo); }
+.atalho-especialidade[aria-pressed="true"] { border-color: var(--roxo); background: #f5f4fc; color: var(--roxo-escuro); box-shadow: 0 0 0 2px #5b57a614; }
+.biblioteca-icones { position: absolute; width: 0; height: 0; overflow: hidden; }
+.icone-especialidade { display: grid; width: 48px; height: 48px; place-items: center; border: 1px solid #ffffffa6; border-radius: 16px; box-shadow: 0 5px 12px #292b3d0a; transition: transform .18s ease, box-shadow .18s ease; }
+.desenho-especialidade { width: 29px; height: 29px; overflow: visible; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2; }
+.atalho-especialidade:hover .icone-especialidade { transform: translateY(-2px) rotate(-4deg); box-shadow: 0 7px 15px #292b3d12; }
+.atalho-especialidade[aria-pressed="true"] .icone-especialidade { transform: scale(1.05); }
+.icone-clinica { background: #e8f8ee; color: #36ae7a; }
+.icone-psicologia { background: #efeffb; color: #6562b6; }
+.icone-dermatologia { background: #f3f0fb; color: #786bbd; }
+.icone-cardiologia { background: #e9f7f3; color: #47ad96; }
+.icone-pediatria { background: #fff0f3; color: #d77891; }
+.icone-ginecologia { background: #fff2eb; color: #d68a69; }
+.icone-ortopedia { background: #edf5f5; color: #568f91; }
+.icone-neurologia { background: #f0effb; color: #716bb6; }
+.icone-psiquiatria { background: #f3eef9; color: #8969a6; }
+.icone-oftalmologia { background: #eef5fb; color: #5e8eaf; }
+.icone-endocrinologia { background: #f2f7e9; color: #7e9b55; }
+.icone-otorrino { background: #edf6f1; color: #5a9a7b; }
+.icone-gastro { background: #fbf3e8; color: #b38a4b; }
+.icone-urologia { background: #eef2fa; color: #647cad; }
+.form-busca { display: grid; grid-template-columns: 1fr 1fr 1fr auto; gap: 10px; }
+.campo-busca { display: flex; min-width: 0; min-height: 52px; align-items: center; gap: 10px; padding: 9px 12px; border: 1px solid #e6e6ec; border-radius: 8px; background: #fff; transition: border-color .16s, box-shadow .16s; }
+.campo-busca:focus-within { border-color: #b7b4dc; box-shadow: 0 0 0 3px #5b57a614; }
+.campo-cidade { position: relative; }
+.campo-cidade:focus-within { z-index: 4; }
+.campo-cidade input::-webkit-calendar-picker-indicator { display: none; }
+.sugestoes-cidades { position: absolute; z-index: 8; top: calc(100% + 8px); left: 0; width: 100%; max-height: 260px; overflow-y: auto; padding: 6px; border: 1px solid #e2e1ec; border-radius: 10px; background: #fff; box-shadow: 0 12px 30px #292b3d1c; }
+.sugestoes-cidades[hidden] { display: none; }
+.sugestao-cidade { display: block; width: 100%; padding: 9px 10px; border: 0; border-radius: 6px; background: #fff; color: #555765; font-size: 13px; text-align: left; }
+.sugestao-cidade:hover, .sugestao-cidade[aria-selected="true"] { background: #f2f1fa; color: var(--roxo-escuro); }
+.campo-icone { align-self: flex-start; padding-top: 3px; color: var(--roxo); font-size: 20px; line-height: 1; }
+.campo-conteudo { display: grid; min-width: 0; flex: 1; gap: 3px; }
+.campo-titulo { color: #42424f; font-size: 12px; font-weight: 700; }
+.campo-busca select, .ordenacao select { width: 100%; padding: 0; border: 0; appearance: none; background: transparent; color: #747582; font-size: 13px; outline: 0; }
+.campo-conteudo input { width: 100%; min-width: 0; padding: 0; border: 0; appearance: none; background: transparent; color: #747582; font-size: 13px; outline: 0; }
+.campo-conteudo input::placeholder { color: #747582; opacity: 1; }
+.botao-busca { min-height: 48px; border-radius: 8px; background: var(--verde); color: #fff; font-size: 14px; }
+.botao-busca:hover { background: var(--verde-escuro); }
+.botao-busca:disabled { cursor: wait; opacity: .7; }
+.botao-busca > span { margin-right: 5px; font-size: 17px; vertical-align: -1px; }
+.aviso-ambiente { margin: 14px 0 0; color: #686774; font-size: 12px; line-height: 1.6; }
+
+.resultados { padding: 55px 0 43px; scroll-margin-top: 25px; }
+.resultados-cabecalho { margin-bottom: 19px; }
+.resultados-cabecalho h2 { margin-top: 6px; font-size: 24px; }
+.texto-secundario { margin: 5px 0 0; color: #747582; font-size: 13px; line-height: 1.65; }
+.ordenacao { display: flex; align-items: center; gap: 9px; color: #777783; font-size: 12px; }
+.ordenacao select { width: auto; color: #454552; font-size: 13px; font-weight: 600; }
+.lista-profissionais { display: grid; gap: 11px; scroll-margin-top: 20px; }
+.cartao-profissional { display: grid; grid-template-columns: 60px minmax(0, 1fr) auto; align-items: center; gap: 15px; padding: 17px 19px; border: 1px solid #e9e9ef; border-radius: 12px; background: #fff; }
+.avatar { display: grid; width: 57px; height: 57px; place-items: center; border: 1px solid #dfdef0; border-radius: 50%; background: #f1f0fa; color: var(--roxo); font: 700 17px var(--titulo); }
+.dados-profissional { min-width: 0; }
+.nome-profissional { margin: 0 0 3px; color: #33333e; font: 700 16px var(--titulo); }
+.especialidade-profissional { margin: 0; color: #646572; font-size: 13px; }
+.local-profissional { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; color: #797a85; font-size: 12px; }
+.selo-mock { display: inline-flex; margin-left: 7px; padding: 3px 6px; border-radius: 4px; background: #f1f1f4; color: #6f707a; font: 500 10px "Segoe UI", Arial, sans-serif; vertical-align: 2px; }
+.horarios-profissional { min-width: 245px; text-align: right; }
+.texto-horarios { display: block; margin-bottom: 7px; color: #747582; font-size: 12px; }
+.lista-horarios { display: flex; justify-content: flex-end; gap: 6px; }
+.botao-horario { min-width: 62px; padding: 8px 10px; border: 1px solid #cfe7d7; border-radius: 6px; background: #f4fbf6; color: #258d54; font-size: 12px; font-weight: 700; }
+.botao-horario:hover { border-color: var(--verde); background: var(--verde); color: #fff; }
+.botao-horario:disabled { opacity: .55; cursor: wait; }
+.mensagem { margin: 0 0 13px; color: #7b5d29; font-size: 14px; }
+.mensagem:empty { display: none; }
+.mensagem.erro { padding: 12px 14px; border: 1px solid #f0d7d1; border-radius: 8px; background: #fff6f4; color: #a44a3a; }
+.estado-vazio { padding: 29px; border: 1px dashed #dedee8; border-radius: 11px; background: #fff; color: #747582; text-align: center; font-size: 14px; }
+.estado-vazio strong { display: block; margin-bottom: 5px; color: #42414d; font: 700 16px var(--titulo); }
+
+.guia-etapas { position: relative; isolation: isolate; padding: 51px 0 55px; scroll-margin-top: 20px; }
+.guia-etapas::before { position: absolute; z-index: -1; top: 0; bottom: 0; left: 50%; width: 100vw; transform: translateX(-50%); background: linear-gradient(112deg, #c2c2f0d9 0%, #d7eff0cf 48%, #504c91b8 100%), url("https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1800&q=85") center 42% / cover; content: ""; }
+.etapas-conteudo { width: min(1080px, 100%); margin-inline: auto; }
+.titulo-etapas { margin-bottom: 25px; text-align: center; }
+.titulo-etapas .passo-legenda { color: #4a4989; }
+.titulo-etapas h2 { margin: 7px 0 0; color: #393774; font-size: 25px; letter-spacing: -.6px; }
+.cartoes-etapas { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; margin: 0; padding: 0; list-style: none; }
+.cartao-etapa { display: flex; min-height: 277px; flex-direction: column; align-items: center; justify-content: flex-start; padding: 30px 25px 24px; border: 1px solid #ffffffb8; border-radius: 20px; background: #fff; text-align: center; box-shadow: 0 13px 35px #39377912; }
+.icone-etapa { display: grid; width: 68px; height: 68px; place-items: center; border-radius: 50%; background: #f4f3fb; color: #418c81; box-shadow: 0 7px 22px #44415b12; }
+.icone-etapa svg { width: 31px; height: 31px; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8; }
+.numero-etapa { margin-top: -6px; padding: 7px 19px; border: 3px solid #fff; border-radius: 30px; background: #c9f1dc; color: #32877b; font-size: 14px; font-weight: 700; }
+.cartao-etapa h3 { max-width: 270px; margin: 10px 0 8px; color: #5956a4; font: 750 21px/1.25 var(--titulo); letter-spacing: -.4px; }
+.cartao-etapa p { max-width: 290px; margin: 0; color: #41424c; font-size: 15px; line-height: 1.6; }
+.rodape { display: flex; min-height: 73px; align-items: center; justify-content: space-between; gap: 15px; border-top: 1px solid #ececf0; }
+.marca-rodape { font-size: 17px; }
+.marca-rodape .marca-simbolo { width: 25px; height: 25px; font-size: 20px; }
+.rodape p, .rodape > span { margin: 0; color: #73737f; font-size: 11px; }
+.rodape > a:last-child { color: #73737f; font-size: 11px; }
+.rodape > a:last-child:hover { color: var(--roxo); }
+
+.dialogo { width: min(520px, calc(100% - 32px)); max-height: min(90vh, 760px); padding: 0; overflow-y: auto; border: 1px solid #e6e5ef; border-radius: 16px; background: #fff; color: #292832; box-shadow: 0 25px 90px #29273b35; }
+.dialogo::backdrop { background: #26243d9c; backdrop-filter: blur(3px); }
+.form-agendamento { position: relative; padding: 31px; }
+.fechar-dialogo { position: absolute; top: 14px; right: 17px; width: 32px; height: 32px; border: 0; border-radius: 50%; background: #f2f2f7; color: #62616e; font-size: 23px; }
+.form-agendamento h2, .conteudo-sucesso h2 { margin: 9px 0 5px; font-size: 23px; letter-spacing: -.8px; }
+.resumo-escolha { display: grid; gap: 4px; margin: 17px 0; padding: 13px; border-radius: 9px; background: #f4f3fa; color: #4b4a58; font-size: 13px; }
+.resumo-escolha strong { color: #34333e; font-size: 14px; }
+.campo-formulario { display: grid; gap: 6px; margin-top: 13px; color: #494854; font-size: 12px; font-weight: 700; }
+.campo-formulario input { width: 100%; min-height: 44px; padding: 0 11px; border: 1px solid #e1e1e9; border-radius: 7px; color: #34343e; font-size: 14px; font-weight: 400; }
+.campo-formulario input::placeholder { color: #a0a0aa; }
+.campos-duplos { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; }
+.aviso-mock { display: flex; align-items: flex-start; gap: 9px; margin-top: 17px; color: #666572; font-size: 12px; line-height: 1.6; }
+.aviso-mock input { margin-top: 2px; accent-color: var(--verde); }
+.erro-formulario { min-height: 18px; margin: 8px 0 0; color: #a34336; font-size: 12px; }
+.botao-confirmar { width: 100%; }
+.botao-confirmar > span { float: right; }
+.botao-texto { display: block; margin: 12px auto 0; border: 0; background: transparent; color: #6c6b78; font-size: 12px; text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 800px) {
+  .topbar, main, .rodape { width: min(100% - 36px, 650px); }
+  .guia-etapas::before { left: -18px; width: calc(100% + 36px); transform: none; }
+  .topbar { height: 70px; }
+  .navegacao { display: none; }
+  .acoes-cabecalho { gap: 12px; }
+  .link-area-profissional { font-size: 12px; }
+  .apresentacao { min-height: 0; grid-template-columns: 1fr; gap: 27px; padding: 38px 0 32px; }
+  .apresentacao-texto { max-width: 560px; padding-left: 2px; }
+  h1 { max-width: 550px; font-size: clamp(39px, 9vw, 54px); }
+  .resumo { font-size: 16px; }
+  .imagem-apresentacao { height: min(62vw, 350px); min-height: 230px; }
+  .busca-cartao { padding: 23px 19px; }
+  .busca-cabecalho h2 { max-width: 440px; font-size: 19px; }
+  .atalhos-especialidade { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+  .atalho-especialidade { min-height: 94px; font-size: 12px; }
+  .form-busca { grid-template-columns: 1fr; gap: 8px; }
+  .campo-busca { min-height: 57px; }
+  .resultados { padding-top: 42px; }
+  .cartao-profissional { grid-template-columns: 48px minmax(0, 1fr); gap: 10px; padding: 14px; }
+  .avatar { width: 46px; height: 46px; font-size: 15px; }
+  .nome-profissional { font-size: 14px; }
+  .horarios-profissional { grid-column: 1 / -1; min-width: 0; text-align: left; }
+  .texto-horarios { margin-bottom: 8px; }
+  .lista-horarios { justify-content: flex-start; flex-wrap: wrap; }
+  .botao-horario { min-width: 67px; }
+  .guia-etapas { padding: 38px 0 42px; }
+  .etapas-conteudo { width: 100%; }
+  .titulo-etapas { margin-bottom: 20px; }
+  .titulo-etapas h2 { font-size: 22px; }
+  .cartoes-etapas { grid-template-columns: 1fr; gap: 13px; }
+  .cartao-etapa { min-height: 0; padding: 23px 20px 21px; }
+  .cartao-etapa h3 { font-size: 19px; }
+  .cartao-etapa p { max-width: 330px; font-size: 14px; }
+  .rodape { flex-wrap: wrap; justify-content: flex-start; padding: 15px 0; }
+  .rodape p { order: 2; flex-basis: 100%; }
+  .rodape > a:last-child { margin-left: auto; }
+}
+
+@media (max-width: 440px) {
+  .topbar, main, .rodape { width: calc(100% - 28px); }
+  .guia-etapas::before { left: -14px; width: calc(100% + 28px); }
+  .topbar { height: 64px; }
+  .marca { gap: 7px; font-size: 19px; }
+  .marca-simbolo { width: 28px; height: 28px; font-size: 21px; }
+  .botao-contorno { min-height: 38px; gap: 7px; padding-inline: 12px; font-size: 12px; }
+  .acoes-cabecalho { gap: 8px; }
+  .link-area-profissional { font-size: 11px; }
+  .acoes-cabecalho .link-area-profissional:nth-child(2) { display: none; }
+  .apresentacao { padding-top: 33px; }
+  h1 { font-size: clamp(37px, 10.1vw, 45px); letter-spacing: -1.9px; }
+  .acoes-apresentacao { gap: 8px; }
+  .acoes-apresentacao .botao { min-height: 44px; padding-inline: 15px; font-size: 12px; }
+  .imagem-apresentacao { min-height: 215px; border-radius: 16px; }
+  .cartao-imagem { right: 10px; bottom: 10px; min-width: 0; padding: 9px 11px; }
+  .icone-imagem { width: 31px; height: 31px; }
+  .busca-cartao { padding: 19px 13px; }
+  .busca-cabecalho { align-items: flex-start; }
+  .busca-cabecalho h2 { font-size: 19px; }
+  .catalogo-cabecalho { align-items: flex-start; }
+  .catalogo-cabecalho > span { font-size: 10px; }
+  .atalhos-especialidade { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; }
+  .atalho-especialidade { min-height: 88px; font-size: 12px; }
+  .icone-especialidade { width: 40px; height: 40px; border-radius: 13px; }
+  .desenho-especialidade { width: 25px; height: 25px; }
+  .resultados-cabecalho { align-items: flex-end; }
+  .resultados-cabecalho h2 { font-size: 19px; }
+  .ordenacao { flex-direction: column; align-items: flex-end; gap: 4px; font-size: 11px; }
+  .ordenacao select { max-width: 110px; font-size: 12px; }
+  .campos-duplos { grid-template-columns: 1fr; gap: 0; }
+  .form-agendamento { padding: 27px 20px 22px; }
+}

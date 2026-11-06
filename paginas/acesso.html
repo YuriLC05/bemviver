@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f6f7fb" />
+    <meta name="description" content="Acesso da equipe profissional e administrativa do BemViver." />
+    <meta name="api-base" content="http://localhost:3000/api" />
+    <title>Entrar — BemViver</title>
+    <link rel="stylesheet" href="../estilos/acesso.css" />
+    <script src="../scripts/acesso.js?v=2" defer></script>
+  </head>
+  <body>
+    <header class="cabecalho-acesso">
+      <a class="marca" href="./index.html" aria-label="BemViver, voltar para a busca de consultas">
+        <span class="marca-simbolo" aria-hidden="true">+</span>
+        <span>bem<span>viver</span></span>
+      </a>
+      <a class="link-voltar" href="./index.html">Voltar à busca</a>
+    </header>
+
+    <main class="conteudo-acesso conteudo-login">
+      <section class="apresentacao-acesso" aria-label="Sobre o acesso ao BemViver">
+        <p class="sobretitulo" id="sobretitulo-acesso">BEMVIVER · ÁREA PROFISSIONAL</p>
+        <h2 id="titulo-apresentacao-acesso">Sua rotina de cuidado, mais organizada.</h2>
+        <p class="texto-apresentacao" id="descricao-apresentacao-acesso">Acesse sua área para acompanhar os horários e cuidar da sua agenda com mais tranquilidade.</p>
+        <ul class="beneficios-acesso">
+          <li>
+            <span class="icone-beneficio" aria-hidden="true">01</span>
+            <span><strong>Agenda em um só lugar</strong><small>Consulte seus horários de atendimento.</small></span>
+          </li>
+          <li>
+            <span class="icone-beneficio" aria-hidden="true">02</span>
+            <span><strong>Acesso da equipe</strong><small>Uma entrada dedicada a profissionais e administração.</small></span>
+          </li>
+          <li>
+            <span class="icone-beneficio" aria-hidden="true">03</span>
+            <span><strong>Cadastro com análise</strong><small>Novos perfis são revisados antes da liberação.</small></span>
+          </li>
+        </ul>
+      </section>
+
+      <section class="cartao-acesso" aria-labelledby="titulo-acesso">
+        <p class="sobretitulo" id="sobretitulo-formulario-acesso">ÁREA DA EQUIPE</p>
+        <h1 id="titulo-acesso">Acesse sua conta</h1>
+        <p class="introducao-acesso" id="introducao-acesso">Entre para cuidar da sua agenda profissional ou administrar a plataforma.</p>
+
+        <form id="form-entrar" class="formulario-acesso">
+          <label for="email">E-mail</label>
+          <input id="email" name="email" type="email" autocomplete="username" maxlength="160" placeholder="voce@exemplo.com" required />
+          <label for="senha">Senha</label>
+          <input id="senha" name="senha" type="password" autocomplete="current-password" maxlength="128" required />
+          <p id="mensagem-acesso" class="mensagem-acesso" role="alert" aria-live="polite"></p>
+          <button id="botao-entrar" class="botao-principal" type="submit">Entrar</button>
+        </form>
+
+        <p id="aviso-api" class="aviso-api" role="status" aria-live="polite" hidden></p>
+        <div class="separador" id="separador-cadastro"><span>AINDA NÃO TEM ACESSO PROFISSIONAL?</span></div>
+        <a class="botao-secundario" id="link-cadastro" href="./cadastro-profissional.html">Solicitar análise profissional</a>
+        <a class="botao-secundario" id="link-acesso-equipe" href="./acesso.html" hidden>Ir para acesso da equipe</a>
+        <p class="nota-acesso" id="nota-acesso">O paciente pode agendar como visitante. Esta entrada é somente para a equipe. A conta administrativa é criada localmente e não tem cadastro público.</p>
+      </section>
+    </main>
+    <footer class="rodape-acesso">Acesso restrito à equipe do BemViver.</footer>
+  </body>
+</html>

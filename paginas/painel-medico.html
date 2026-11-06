@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f6f7fb" />
+    <meta name="description" content="Painel profissional para visualizar uma agenda médica e horários de atendimento." />
+    <meta name="api-base" content="http://localhost:3000/api" />
+    <title>Agenda profissional — BemViver</title>
+    <link rel="stylesheet" href="../estilos/painel-medico.css" />
+    <script src="../scripts/painel-medico.js" defer></script>
+  </head>
+  <body>
+    <header class="cabecalho-painel">
+      <a class="marca" href="./index.html" aria-label="BemViver, voltar para a busca de consultas">
+        <span class="marca-simbolo" aria-hidden="true">+</span>
+        <span>bem<span>viver</span></span>
+      </a>
+      <nav class="navegacao-painel" aria-label="Navegação da área profissional">
+        <a class="link-voltar" href="./index.html">Buscar consultas</a>
+        <button id="sair-conta" class="botao-sair" type="button">Sair da conta</button>
+      </nav>
+    </header>
+
+    <main class="conteudo-painel">
+      <section class="boas-vindas">
+        <div>
+          <p class="sobretitulo">ÁREA DO PROFISSIONAL</p>
+          <h1>Olá, <span id="nome-profissional">profissional</span>.</h1>
+          <p class="texto-introdutorio">Acompanhe seus horários e os agendamentos em um só lugar.</p>
+        </div>
+      </section>
+
+      <div id="mensagem-painel" class="mensagem-painel" role="status" aria-live="polite"></div>
+
+      <section class="resumo-agenda" aria-label="Resumo da agenda">
+        <article class="cartao-resumo">
+          <span class="resumo-icone icone-consultas" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3.5" y="5.5" width="17" height="15" rx="2"></rect><path d="M7.5 3.5v4M16.5 3.5v4M3.5 10h17M8 14h2m4 0h2"></path></svg>
+          </span>
+          <span class="resumo-texto"><span>Consultas confirmadas</span><strong id="total-consultas">—</strong><small>na agenda deste profissional</small></span>
+        </article>
+        <article class="cartao-resumo">
+          <span class="resumo-icone icone-horarios" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7v5l3.5 2"></path></svg>
+          </span>
+          <span class="resumo-texto"><span>Horários livres</span><strong id="total-horarios">—</strong><small>disponíveis para agendamento</small></span>
+        </article>
+        <article class="cartao-resumo">
+          <span class="resumo-icone icone-modalidade" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 5.5h16v11H4zM9 20h6m-3-3.5V20"></path><path d="m10 9 5 2.2-5 2.3z"></path></svg>
+          </span>
+          <span class="resumo-texto"><span>Formas de atendimento</span><strong id="total-modalidades">—</strong><small>cadastradas para este perfil</small></span>
+        </article>
+      </section>
+
+      <div class="colunas-agenda">
+        <section class="painel-secao painel-consultas" aria-labelledby="titulo-consultas">
+          <div class="cabecalho-secao">
+            <div>
+              <p class="sobretitulo">ACOMPANHAMENTO</p>
+              <h2 id="titulo-consultas">Consultas agendadas</h2>
+            </div>
+            <label class="filtro-data">Filtrar por dia
+              <input id="filtro-data" type="date" aria-label="Filtrar consultas por dia" />
+            </label>
+          </div>
+          <p class="ajuda-secao">A agenda ainda não está integrada a um serviço profissional externo.</p>
+          <div id="lista-agendamentos" class="lista-agendamentos"></div>
+        </section>
+
+        <div class="coluna-lateral">
+          <section class="painel-secao secao-adicionar" aria-labelledby="titulo-adicionar">
+            <div class="cabecalho-secao">
+              <div>
+                <p class="sobretitulo">DISPONIBILIDADE</p>
+                <h2 id="titulo-adicionar">Abrir horário</h2>
+              </div>
+              <span class="icone-adicionar" aria-hidden="true">+</span>
+            </div>
+            <p class="ajuda-secao">Novos horários passam a aparecer na busca dos pacientes.</p>
+            <form id="form-horario" class="form-horario">
+              <label>Dia
+                <input id="dia-horario" name="data" type="date" required />
+              </label>
+              <label>Horário
+                <input name="hora" type="time" value="09:00" step="1800" required />
+              </label>
+              <label>Modalidade
+                <select id="modalidade-horario" name="modalidade" required>
+                  <option value="Presencial">Presencial</option>
+                  <option value="Teleconsulta">Teleconsulta</option>
+                </select>
+              </label>
+              <button class="botao botao-principal" type="submit">Adicionar à agenda</button>
+            </form>
+          </section>
+
+          <section class="painel-secao secao-teleconsulta" aria-labelledby="titulo-teleconsulta">
+            <div class="cabecalho-secao">
+              <div>
+                <p class="sobretitulo">PREPARAÇÃO</p>
+                <h2 id="titulo-teleconsulta">Teleconsulta</h2>
+              </div>
+              <span class="icone-teleconsulta" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="12" height="12" rx="2"></rect><path d="m15 10 6-3v10l-6-3"></path></svg>
+              </span>
+            </div>
+            <p class="ajuda-secao">Confira câmera e microfone antes da consulta. O teste mostra a prévia somente neste dispositivo.</p>
+            <button class="botao botao-teste" type="button" data-abrir-teste>
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="6" width="12" height="12" rx="2"></rect><path d="m15 10 6-3v10l-6-3M8 3v3m2 12v3"></path></svg>
+              Testar câmera e microfone
+            </button>
+            <p class="nota-privacidade">A câmera e o microfone só são solicitados quando você inicia o teste.</p>
+          </section>
+
+          <section class="painel-secao secao-horarios" aria-labelledby="titulo-horarios">
+            <div class="cabecalho-secao">
+              <div>
+                <p class="sobretitulo">PRÓXIMOS HORÁRIOS</p>
+                <h2 id="titulo-horarios">Disponíveis</h2>
+              </div>
+              <span id="contador-horarios" class="contador-horarios">0</span>
+            </div>
+            <div id="lista-horarios" class="lista-horarios"></div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <footer class="rodape-painel">
+      <a class="marca marca-rodape" href="./index.html"><span class="marca-simbolo" aria-hidden="true">+</span><span>bem<span>viver</span></span></a>
+      <p>Este painel ainda não está conectado a uma agenda médica profissional.</p>
+      <a href="./index.html">Voltar à busca de consultas</a>
+    </footer>
+
+    <dialog id="dialogo-teste" class="dialogo-teste" aria-labelledby="titulo-dialogo-teste">
+      <div class="cabecalho-dialogo">
+        <div>
+          <p class="sobretitulo">PRÉVIA LOCAL</p>
+          <h2 id="titulo-dialogo-teste">Teste seus equipamentos</h2>
+        </div>
+        <button id="fechar-teste" class="botao-fechar-dialogo" type="button" aria-label="Fechar teste">×</button>
+      </div>
+      <p class="texto-dialogo">A câmera e o microfone só serão acessados depois que você iniciar o teste. Imagem e áudio não serão gravados nem transmitidos.</p>
+
+      <div class="area-previa">
+        <video id="previa-camera" autoplay muted playsinline aria-label="Prévia local da câmera"></video>
+        <div id="placeholder-previa" class="placeholder-previa">
+          <span class="icone-previa" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="12" height="12" rx="2"></rect><path d="m15 10 6-3v10l-6-3"></path></svg>
+          </span>
+          <strong>A prévia da câmera aparecerá aqui</strong>
+          <span>Nenhum equipamento está ativo agora.</span>
+        </div>
+        <span id="selo-previa" class="selo-previa">Câmera desligada</span>
+      </div>
+
+      <div class="estado-equipamentos">
+        <div class="linha-equipamento">
+          <span class="icone-equipamento" aria-hidden="true">▣</span>
+          <span class="texto-equipamento"><strong>Câmera</strong><small id="estado-camera">Desligada</small></span>
+          <span id="indicador-camera" class="indicador-equipamento"></span>
+        </div>
+        <div class="linha-equipamento">
+          <span class="icone-equipamento icone-microfone" aria-hidden="true">♩</span>
+          <span class="texto-equipamento"><strong>Microfone</strong><small id="estado-microfone">Desligado</small></span>
+          <span id="indicador-microfone" class="indicador-equipamento"></span>
+        </div>
+      </div>
+
+      <div class="medidor-microfone">
+        <div class="cabecalho-medidor"><span>Teste de áudio</span><span id="rotulo-medidor">Fale para testar</span></div>
+        <div class="trilho-medidor" role="meter" aria-label="Nível de entrada do microfone" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <span id="nivel-microfone" class="nivel-medidor"></span>
+        </div>
+      </div>
+      <p id="mensagem-teste" class="mensagem-teste" role="status" aria-live="polite">Ao iniciar, o navegador poderá pedir permissão para usar os equipamentos.</p>
+
+      <div class="acoes-teste">
+        <button id="iniciar-teste" class="botao botao-principal" type="button">Iniciar teste</button>
+        <button id="parar-teste" class="botao botao-parar" type="button" disabled>Desligar equipamentos</button>
+      </div>
+      <p class="rodape-dialogo">Fechar esta janela desliga a câmera e o microfone. Este teste não inicia uma teleconsulta.</p>
+    </dialog>
+  </body>
+</html>
